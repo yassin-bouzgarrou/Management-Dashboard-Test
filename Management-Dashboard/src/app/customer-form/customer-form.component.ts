@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CustomerService } from '../services/customer.service';
 
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
-  styleUrl: './customer-form.component.css'
+  styleUrl: './customer-form.component.css',
 })
 export class CustomerFormComponent {
- tunisianCities: string[] = [
+  Form: FormGroup;
+  tunisianCities: string[] = [
     'Tunis',
     'Sfax',
     'Sousse',
@@ -29,5 +32,32 @@ export class CustomerFormComponent {
     'Tataouine',
     'Zaghouan',
   ];
+  constructor(
+    private form: FormBuilder,
+    private customerService: CustomerService
+  ) {
+    this.Form = this.form.group({
+      firstname: '',
+      lastname: '',
+      email: '',
+      number: '',
+      addres: '',
+      city: '',
+      dateOfBirdhday: '',
+    });
+  }
 
+  FormSumbit() {
+    if (this.Form.value) {
+      this.customerService
+        .addCustomer(this.Form.value)
+        .subscribe((response) => {
+          console.log('Customer added successfully:', response);
+        },
+        (error) => {
+          console.error('Error adding customer:', error);
+       
+        });
+    }
+  }
 }

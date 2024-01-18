@@ -4,56 +4,60 @@
     <div mat-dialog-title>
         <h1 class="textcenter"> Employee Form</h1>
     </div>
-    <div mat-dialog-content>
-        <div class="twoinputs">
+    <form [formGroup]="Form " (ngSubmit)="FormSumbit()">
+        <div mat-dialog-content>
+
+            <div class="twoinputs">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" placeholder="ex : yassin Bozuagrrou" formControlName="firstname">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="ex : Bozuagrrou" formControlName="lastname" type="text">
+                </mat-form-field>
+            </div>
+
+            <div class="twoinputs">
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="number" placeholder="+216  52148482" formControlName="number">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="ex :yassin@gmail.com" type="email" formControlName="email">
+                </mat-form-field>
+            </div>
+
+
+
+            <div class="twoinputs">
+                <mat-form-field>
+                    <mat-label>address</mat-label>
+                    <input matInput type="text" placeholder="tue mohaed Salah" formControlName="addres">
+
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="city">
+
+                        <mat-option *ngFor="let city of tunisianCities  " [value]="city">{{city}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
             <mat-form-field>
-                <mat-label>First Name</mat-label>
-                <input matInput type="text" placeholder="ex : yassin Bozuagrrou">
+                <mat-label>Date of birthday</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirdhday">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <mat-form-field>
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="ex : Bozuagrrou" type="text">
-            </mat-form-field>
+
+            <div mat-dialog-actions style="display: flex; justify-content: center; gap: 20px;">
+                <button mat-raised-button type="button">Cancel</button>
+                <button mat-raised-button color="primary" type="submit">Save</button>
+            </div>
+
         </div>
-
-        <div class="twoinputs">
-            <mat-form-field>
-                <mat-label>Phone Number</mat-label>
-                <input matInput type="number" placeholder="+216  52148482">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="ex :yassin@gmail.com" type="email">
-            </mat-form-field>
-        </div>
-
-
-
-        <div class="twoinputs">
-            <mat-form-field>
-                <mat-label>address</mat-label>
-                <input matInput type="text" placeholder="tue mohaed Salah">
-
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>City</mat-label>
-                <mat-select>
-                   
-                    <mat-option *ngFor="let city of tunisianCities  " [value]="city">{{city}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-
-        </div>
-        <mat-form-field>
-            <mat-label>Date of birthday</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <div mat-dialog-actions style="display: flex; justify-content: center; gap: 20px;">
-            <button mat-raised-button type="button">Cancel</button>
-            <button mat-raised-button color="primary" type="submit">Save</button>
-        </div>
-    </div>
+    </form>
