@@ -1,7 +1,11 @@
 
 <p>
   <mat-toolbar color="primary">
+    <div> 
+      
+    </div>
 
+    <mat-icon>person</mat-icon>
     <span>Management Dashboard</span>
     <span class="example-spacer"></span>
  
@@ -10,4 +14,72 @@
     </button>
   </mat-toolbar>
 </p>
+
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef>first Name</th>
+    <td mat-cell *matCellDef="let element">{{element.firstname}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef>las tname</th>
+    <td mat-cell *matCellDef="let element">{{element.lastname}}</td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="number">
+    <th mat-header-cell *matHeaderCellDef>Phone number</th>
+    <td mat-cell *matCellDef="let element">{{element.number}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>email</th>
+    <td mat-cell *matCellDef="let element">{{element.email}}</td>
+  </ng-container>
+  
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef>city</th>
+    <td mat-cell *matCellDef="let element">{{element.city}}</td>
+  </ng-container>
+  
+  <ng-container matColumnDef="dateOfBirthday">
+    <th mat-header-cell *matHeaderCellDef>dateOfBirdhday</th>
+    <td mat-cell *matCellDef="let element">{{element.dateOfBirthday  | date | uppercase }}</td>
+  </ng-container>
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef>address</th>
+    <td mat-cell *matCellDef="let element">{{element.address}}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="editCustomer(element)" >
+        <mat-icon color="primary" >edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteCustomer(element.id)">
+        <mat-icon  color="warn">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+      mat-row
+      (click)="clickedRows.add(row)"
+      [class.demo-row-is-clicked]="clickedRows.has(row)"
+      *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+
+  
+</table>
 

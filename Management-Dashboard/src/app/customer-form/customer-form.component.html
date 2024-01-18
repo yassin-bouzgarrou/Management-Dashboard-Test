@@ -34,7 +34,7 @@
             <div class="twoinputs">
                 <mat-form-field>
                     <mat-label>address</mat-label>
-                    <input matInput type="text" placeholder="tue mohaed Salah" formControlName="addres">
+                    <input matInput type="text" placeholder="tue mohaed Salah" formControlName="address">
 
                 </mat-form-field>
                 <mat-form-field>
@@ -48,15 +48,15 @@
             </div>
             <mat-form-field>
                 <mat-label>Date of birthday</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="dateOfBirdhday">
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirthday">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <div mat-dialog-actions style="display: flex; justify-content: center; gap: 20px;">
-                <button mat-raised-button type="button">Cancel</button>
-                <button mat-raised-button color="primary" type="submit">Save</button>
+                <button mat-raised-button type="button" (click)="CloseModel()">Cancel</button>
+                <button mat-raised-button color="primary" type="submit">{{data ? "udpate customer" : "add  customer"}}</button>
             </div>
 
         </div>

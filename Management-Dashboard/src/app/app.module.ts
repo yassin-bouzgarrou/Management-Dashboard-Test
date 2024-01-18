@@ -15,6 +15,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { DatePipe } from '@angular/common';
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +41,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatSelectModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginator,
+    MatTableModule,
+    DatePipe
     
   ],
   providers: [],
