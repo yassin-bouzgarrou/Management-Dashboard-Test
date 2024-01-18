@@ -1,5 +1,5 @@
 {
-  "name": "management-dashboard-test",
+  "name": "management-dashboard",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
