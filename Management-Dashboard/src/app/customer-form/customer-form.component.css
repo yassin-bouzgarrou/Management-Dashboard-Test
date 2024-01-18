@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .textcenter{
+    text-align: center;
+    margin: 10  auto;
+
+    
+  }
+
+  .twoinputs{
+    display: flex;
+    gap: 5px;
+  }
+
+  .contianer-form{
+    padding: 10px;
+  }
