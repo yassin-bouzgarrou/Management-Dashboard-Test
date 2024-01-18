@@ -9,9 +9,9 @@ Briefly describe your project.
 
 1. [Getting Started](#getting-started)
    - [Prerequisites](#prerequisites)
-   - [Installation && Running the Project](#installation && #running-the-project)
-2. [Usage](#usage)
-
+   - [Installation and Running the Project](#installation-and-running-the-project)
+2. [Features](#features)
+3. [Usage](#usage)
 ## Getting Started
 
 ### Prerequisites
@@ -39,7 +39,12 @@ Before you begin, ensure you have met the following requirements:
    -cd backend
      -npm install
      -npm start
-### Usage 
+# Management Dashboard
 
 ![image](https://github.com/yassin-bouzgarrou/Management-Dashboard-Test/assets/116759337/8160ed50-d86a-4553-aa1c-6bc38c9f2363)
+## Features
 
+- View a list of existing customers.
+- Add new customers with relevant details.
+- Update existing customer information.
+- Delete customers from the system.
