@@ -20,9 +20,7 @@ Before you begin, ensure you have met the following requirements:
 
 - Node.js and npm installed
 - Angular CLI installed (`npm install -g @angular/cli`)
-- Backend server up and running 
-   - Backend running:  "cd backend" => "npm start"
-  - frontend running: "cd Management-Dashboard" => "ng serve"
+
 
 ### Installation
 
