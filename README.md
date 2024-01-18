@@ -10,8 +10,8 @@ Briefly describe your project.
 1. [Getting Started](#getting-started)
    - [Prerequisites](#prerequisites)
    - [Installation and Running the Project](#installation-and-running-the-project)
-2. [Features](#features)
-3. [Usage](#usage)
+2. [Management Dashboard](#ManagementDashboard)
+
 ## Getting Started
 
 ### Prerequisites
