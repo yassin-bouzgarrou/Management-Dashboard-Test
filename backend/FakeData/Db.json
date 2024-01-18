@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "firstname": "moahledsalem",
+    "lastname": "Ben Ali",
+    "email": "ahmed.ben.ali@example.com",
+    "number": "+21612345678",
+    "address": "42 Rue Principale",
+    "city": "Tunis",
+    "dateOfBirthday": "1985-03-15"
+  },
+  {
+    "id": 2,
+    "firstname": "Fatima",
+    "lastname": "Kheder",
+    "email": "fatima.kheder@example.com",
+    "number": "+21698765432",
+    "address": "28 Avenue des Jardins",
+    "city": "Sousse",
+    "dateOfBirthday": "1992-07-22"
+  },
+  {
+    "id": 3,
+    "firstname": "Youssef",
+    "lastname": "Mansour",
+    "email": "youssef.mansour@example.com",
+    "number": "+21655555555",
+    "address": "15 Rue du Commerce",
+    "city": "Sfax",
+    "dateOfBirthday": "1988-12-10"
+  },
+  {
+    "id": 3,
+    "firstname": "Youssef",
+    "lastname": "Mansour",
+    "email": "youssef.mansour@example.com",
+    "number": "+21655555555",
+    "address": "15 Rue du Commerce",
+    "city": "Sfax",
+    "dateOfBirthday": "1988-12-10"
+  }
+]
