@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CustomerService } from './services/customer.service';
 import { interval, Subscription } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -16,14 +17,14 @@ export class AppComponent implements OnInit {
     'firstname',
     'lastname',
     'email',
+    'number',
     'address',
     'city',
     'dateOfBirthday',
     'actions',
   ];
-  dataSource: any[] = [];
+  dataSource!: MatTableDataSource<any>;
   clickedRows = new Set<any>();
-  private refreshSubscription!: Subscription;
 
   constructor(
     private moduleDialog: MatDialog,
@@ -43,6 +44,35 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+
+  //  service method to get all customers after apply the filter
+  applyFilter(filterValue: string): void {
+    this.customerService.getAllCustomers().subscribe(
+      (respo: any[]) => {
+        
+        filterValue = filterValue.trim().toLowerCase();
+        let filtered = respo.filter((item: any) =>
+          item.firstname.toLowerCase().includes(filterValue)
+        );
+        if(filterValue.length === 0){
+          this.dataSource = new MatTableDataSource();
+
+        }
+  
+        console.log(filtered, "this filtered");
+        this.dataSource = new MatTableDataSource(filtered);
+        
+      },
+      (eroor: any) => {
+        console.error('Error retrieving customers:', eroor);
+      }
+    );
+  }
+  
+  
+
+
 
   
   editCustomer(data: any) {
@@ -70,7 +100,7 @@ export class AppComponent implements OnInit {
     );
   }
   //this function to get all the data of customer
-  getCustomer() {
+  getCustomer():any {
     this.customerService.getAllCustomers().subscribe(
       (response) => {
         console.log('Customers retrieved successfully:', response);

@@ -3,7 +3,7 @@
     "firstname": "Fatima",
     "lastname": "Khelifi",
     "email": "fatima.khelifi@example.com",
-    "number": "+21653123456",
+    "number": 96530888,
     "address": "15 Rue Ibn Khaldoun",
     "city": "Sfax",
     "dateOfBirthday": "1985-12-10",
@@ -13,7 +13,7 @@
     "firstname": "Ali",
     "lastname": "Tounsi",
     "email": "ali.tounsi@example.com",
-    "number": "+21654123456",
+    "number": 96530888,
     "address": "7 Avenue de la République",
     "city": "Sousse",
     "dateOfBirthday": "1993-08-25",
@@ -48,15 +48,5 @@
     "city": "Tunis",
     "dateOfBirthday": "2024-01-24T23:00:00.000Z",
     "id": 1705595183178
-  },
-  {
-    "firstname": "MOHA",
-    "lastname": "ben a",
-    "email": "yassi@gmail.com",
-    "number": 55595858,
-    "address": "dsdqs",
-    "city": "Tunis",
-    "dateOfBirthday": "2023-01-24T23:00:00.000Z",
-    "id": 1705601751921
   }
 ]

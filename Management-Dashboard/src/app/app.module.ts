@@ -45,7 +45,8 @@ import { DatePipe } from '@angular/common';
     MatTableModule,
     MatPaginator,
     MatTableModule,
-    DatePipe
+    DatePipe,
+    
     
   ],
   providers: [],

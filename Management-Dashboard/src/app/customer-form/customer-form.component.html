@@ -21,7 +21,7 @@
             <div class="twoinputs">
                 <mat-form-field>
                     <mat-label>Phone Number</mat-label>
-                    <input matInput type="number" placeholder="+216  52148482" formControlName="number">
+                    <input matInput type="number" placeholder="+216 52148482" formControlName="number">
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
@@ -48,7 +48,7 @@
             </div>
             <mat-form-field>
                 <mat-label>Date of birthday</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="dateOfBirthday">
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirthday" max="2018-12-31">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>

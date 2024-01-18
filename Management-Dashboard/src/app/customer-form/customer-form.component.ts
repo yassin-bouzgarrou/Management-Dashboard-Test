@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
 import { CustomerService } from '../services/customer.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -40,24 +40,26 @@ export class CustomerFormComponent  implements OnInit{
     private form: FormBuilder,
     private customerService: CustomerService,
     private dialog: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data:any 
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    //validation of the form 
     this.Form = this.form.group({
-      firstname: '',
-      lastname: '',
-      email: '',
-      number: '',
-      address: '',
-      city: '',
-      dateOfBirthday: '',
+      firstname: ['', [Validators.required, Validators.minLength(5)]],
+      lastname: ['',  [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.email]],
+     number: ['', [Validators.required, Validators.pattern('^[0-9]{8,}$')]],
+      address: ['',  [Validators.required, Validators.minLength(8)]],
+      city: ['', Validators.required],
+      dateOfBirthday: ['', Validators.required],
     });
   }
+
   CloseModel(){
     this.dialog.close()
   }
   //here if data from upaate so will use methode update else we will add 
   FormSumbit() {
-    if (this.Form.value) {
+    if (this.Form.valid) {
       if(this.data){
         this.customerService.updateCustomer(this.data.id,this.Form.value).subscribe((response) => {
           console.log('Customer added successfully:', response);
