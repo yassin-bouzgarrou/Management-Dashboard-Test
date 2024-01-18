@@ -1,6 +1,5 @@
 # Management-Dashboard-Test
 
-# Project Name
 
 ## Description
 
