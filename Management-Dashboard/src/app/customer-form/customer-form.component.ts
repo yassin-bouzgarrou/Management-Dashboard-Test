@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
 import { CustomerService } from '../services/customer.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
@@ -39,8 +39,10 @@ export class CustomerFormComponent  implements OnInit{
   constructor(
     private form: FormBuilder,
     private customerService: CustomerService,
+    private _snackBar: MatSnackBar,
     private dialog: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    
   ) {
     //validation of the form 
     this.Form = this.form.group({
@@ -53,7 +55,9 @@ export class CustomerFormComponent  implements OnInit{
       dateOfBirthday: ['', Validators.required],
     });
   }
-
+  openSnackBar() {
+    this._snackBar.open;
+  }
   CloseModel(){
     this.dialog.close()
   }
@@ -62,7 +66,10 @@ export class CustomerFormComponent  implements OnInit{
     if (this.Form.valid) {
       if(this.data){
         this.customerService.updateCustomer(this.data.id,this.Form.value).subscribe((response) => {
-          console.log('Customer added successfully:', response);
+   
+          this._snackBar.open('Customer information updated!', 'Close', {
+            duration: 3000, 
+          });
           this.dialog.close(true)
       
         },
@@ -74,6 +81,9 @@ export class CustomerFormComponent  implements OnInit{
       else{
         this.customerService.addCustomer(this.Form.value).subscribe((response) => {
           console.log('Customer added successfully:', response);
+          this._snackBar.open('Customer information submitted!', 'Close', {
+            duration: 3000, 
+          });
           this.dialog.close(true)
       
         },
